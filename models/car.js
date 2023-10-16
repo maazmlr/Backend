@@ -3,8 +3,7 @@ import mongoose,{mongo} from "mongoose";
 const {Schema} = mongoose;
 
 const carSchema = new mongoose.Schema({
-    carMake:{
-
+    carName:{
         type:Schema.Types.String,
         required:true,
         unique:true
@@ -24,6 +23,6 @@ const carSchema = new mongoose.Schema({
     
   });
 
-const Car = mongoose.model('Car', carSchema);
+const Car = mongoose.model('Cars', carSchema);
 
 export default Car;

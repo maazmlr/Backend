@@ -1,9 +1,9 @@
 import  express  from "express";
 import mongoose from "mongoose";
 const router = express.Router();
-const Bike = mongoose.connection.collection('Bikes');
+const Cars = mongoose.connection.collection('CommercialCar');
 router.get('/', async(req, res)=>{
-    const bike = await Bike.find({}).toArray();
-    res.status(200).send({"message": bike});
+    const car = await Cars.find({}).toArray();
+    res.status(200).send({"message": (car)});
 })
 export default router;

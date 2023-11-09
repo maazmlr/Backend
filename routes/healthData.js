@@ -1,29 +1,21 @@
-import Myself from "../Schema/myselfSchema.js";
-import express from "express"
+import  express  from "express";
 import mongoose from "mongoose";
-
-const router=express.Router();
-
+const router = express.Router();
 const health = mongoose.connection.collection('HealthPlan');
-let age = 0;
-router.post('/' ,async(req,res)=>{
-    try{
-        let count = await Myself.findOne().sort({ _id: -1 });
-        let lead = count != null ? (count.leadID + 1): 1;
-        const myselfData=await Myself({"leadID":lead,...req.body.values})
-        myselfData.save();
-        age = req.body.values.age;
-        res.status(200).send({ status: 200, message: { "leadID": lead, ...req.body.values } })
-    }
-    catch(err){
-        res.status(400).send({status: 400, message: err.message})
-
-    }
-})
-
 router.get('/', async(req, res)=>{
+   
+   
+   
+   
     const HealthPlan = await health.find({}).toArray();
     // res.status(200).send({"message": HealthPlan});
+
+    const age = 27; // The customer's age
+
+
+
+
+
     // Assuming the data is stored in a variable called 'data'
     console.log(HealthPlan[0].company_policies[0])
 
@@ -64,5 +56,4 @@ router.get('/', async(req, res)=>{
     res.status(200).send({'message':results})
     
 })
-
 export default router;

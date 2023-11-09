@@ -11,6 +11,7 @@ import parents from './parentInsurance.js';
 import Life from './lifeInsurence.js'
 import Home from './Home.js'
 import Contact from './contact.js'
+import HealthPlan from './healthData.js'
 const router = express.Router()
 
 
@@ -26,6 +27,7 @@ router.use('/familyInsurance', Family)
 router.use('/parentsInsurance', parents)
 router.use('/lifeInsurance', Life)
 router.use('/contact', Contact)
+router.use('/healthPlan', HealthPlan)
 
 
 export default router;

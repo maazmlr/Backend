@@ -12,6 +12,7 @@ import Life from './lifeInsurence.js'
 import Home from './Home.js'
 import Contact from './contact.js'
 import HealthPlan from './healthData.js'
+import Card from './cardApi.js'
 const router = express.Router()
 
 
@@ -28,6 +29,7 @@ router.use('/parentsInsurance', parents)
 router.use('/lifeInsurance', Life)
 router.use('/contact', Contact)
 router.use('/healthPlan', HealthPlan)
+router.use('/Card', Card)
 
 
 export default router;

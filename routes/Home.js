@@ -21,18 +21,18 @@ router.use(session(
     }
 ))
 
-router.get('/',  (req, res) => {
+// router.get('/',  (req, res) => {
 
-// cloudinary.uploader.upload('C:/Users/s/Downloads/xxHjqJ/logos/tpl.png', (error, result)=>{
+// cloudinary.uploader.upload('C:/Users/s/Downloads/aWWzXb/LOGOS/Untitled-1Artboard-11.png', (error, result)=>{
 //     console.log(result, error);
 //   }).then(res=>console.log('rrr',res))
 //   .catch(res=>console.log('error',res))
 
-    if (!req.session.visited) {
-      req.session.visited = true;
+//     if (!req.session.visited) {
+//       req.session.visited = true;
       
-    } 
-  });
+//     } 
+//   });
 
 
 export default router;

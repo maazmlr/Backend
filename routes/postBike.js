@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 
 const router=express.Router();
 const bike = mongoose.connection.collection('BikePlan');
-let userAmount = 0;
+let userAmount = 50000;
 
 router.post('/' ,async(req,res)=>{
     try{
@@ -24,7 +24,6 @@ router.get('/', async (req, res) => {
     try {
         const bikePlan = await bike.find({}).toArray();
         // Replace this with the user's amount
-        console.log(bikePlan[0].company_policies)
         const result = [];
         bikePlan[0].company_policies.forEach(companyPolicy => {
             const companyName = companyPolicy.company;
@@ -33,13 +32,13 @@ router.get('/', async (req, res) => {
             result.push({
                 company: companyName,
                 image_url: imageUrl,
-                bikeAmount: amount
+                bikeAmount: amount,
+                percentage: companyPolicy.percentage
             });
             // Find the amount range for the user's amount
         });
         res.status(200).send({ 'message': result })
     } catch (error) {
-        console.error(error);
         res.status(500).send({ error: 'Internal Server Error' });
     }
 })
